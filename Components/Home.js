@@ -44,7 +44,7 @@ export default function Home(){
                 />
             </View>
                 {/*Ongoing Order view*/}
-
+        <ScrollView>
                 <View style={styles.view1}>
 
                     <Text style={{marginTop: 25, marginLeft: 20, color: 'white', fontSize: 15, fontWeight :'bold'}} > Ongoing Order </Text>
@@ -168,7 +168,7 @@ export default function Home(){
 
                 </View>
             </View>
-
+        </ScrollView>
 
 
         {/*Incons bar */}
