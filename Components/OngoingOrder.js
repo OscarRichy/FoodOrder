@@ -15,7 +15,7 @@ export default function OngoingOrder(){
     
 
     return(
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={{backgroundColor: '#7a395c',height: 380,alignContent: 'center', alignItems: 'center'}}>
 
                 <IconButton
@@ -126,7 +126,7 @@ export default function OngoingOrder(){
             </TouchableOpacity>
 
             
-        </View>
+        </ScrollView>
 
     )
 }

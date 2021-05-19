@@ -15,7 +15,7 @@ export default function TrackOrder(){
     
 
     return(
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={{height: 500, opacity: 0.9,alignContent: 'center', alignItems: 'center'}}>
 
                 <Image source={require('../assets/Maps.jpg')} style={{height: 600, width: 375, position: 'absolute', marginTop: 50}}></Image>
@@ -95,7 +95,7 @@ export default function TrackOrder(){
 
             </View>
             
-        </View>
+        </ScrollView>
 
     )
 }
