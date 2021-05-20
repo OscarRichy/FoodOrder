@@ -78,14 +78,6 @@ export default function MyProfile(){
                 <View style={[styles.shadow2]}>
                     <Text style={styles.textActivity}>  </Text>
                 </View>
-            {/* Boutton Log Out*/}
-                <Button 
-                    style={{marginTop: 150, marginLeft : 110, marginRight: 110,}}
-                    title="Log Out"
-                    type = 'solid' 
-                    onPress ={ () => {deleteJwt(), navigation.navigate('Home')}
-                    }
-                />
             
             </ScrollView>
         
