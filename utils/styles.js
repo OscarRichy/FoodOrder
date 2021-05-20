@@ -57,7 +57,6 @@ export const styles = StyleSheet.create({
     view1: {
      //   fontWeight: 'bold',
        // overflow: 'hidden',
-        marginTop:45,
         //borderColor:'#dcdcdc',
         backgroundColor: '#7a395c',
         borderRadius: 30,
@@ -134,7 +133,7 @@ export const styles = StyleSheet.create({
     },
     menuBar: {
         position: 'absolute',
-        marginTop: 732,
+        bottom: 10,
         alignSelf:'center',
         justifyContent: 'space-between',
         flexDirection: 'row',

@@ -22,7 +22,7 @@ export default function Home(){
             <View>
                 <IconButton
                     
-                    style={{marginLeft: 10, marginTop: 50, position: 'absolute',borderRadius: 20, borderWidth: 1,borderColor: 'lightgrey'}}
+                    style={{marginLeft: 10, top: 45, position: 'absolute',borderRadius: 20, borderWidth: 1,borderColor: 'lightgrey'}}
                     icon = "apps"
                     color='#7a395c'
                     size={30}
@@ -30,12 +30,12 @@ export default function Home(){
                     onPress={() => navigation.openDrawer()}
                 />
 
-                <Text style={{marginTop: 50,fontSize: 14, color: 'grey', textAlign:'center',alignSelf:'center', fontWeight: '500'}}>Your Address</Text>
-                <Text style={{marginTop: 2,fontSize: 14, alignSelf:'center', fontWeight:'bold'}}>Dominic Street 47, W Hampton</Text>
+                <Text style={{top: 50,fontSize: 14, color: 'grey', textAlign:'center',alignSelf:'center', fontWeight: '500'}}>Your Address</Text>
+                <Text style={{top: 55,fontSize: 14, alignSelf:'center', fontWeight:'bold'}}>Dominic Street 47, W Hampton</Text>
 
                 <IconButton
                     
-                    style={{marginLeft: 320, marginTop: 50, position: 'absolute',borderRadius: 20, borderWidth: 1,borderColor: 'lightgrey'}}
+                    style={{marginLeft: 320, top: 45, position: 'absolute',borderRadius: 20, borderWidth: 1,borderColor: 'lightgrey'}}
                     icon = "magnify"
                     color='#7a395c'
                     size={30}
@@ -44,7 +44,7 @@ export default function Home(){
                 />
             </View>
                 {/*Ongoing Order view*/}
-        <ScrollView>
+        <ScrollView style={{top: 75}}>
                 <View style={styles.view1}>
 
                     <Text style={{marginTop: 25, marginLeft: 20, color: 'white', fontSize: 15, fontWeight :'bold'}} > Ongoing Order </Text>
