@@ -17,6 +17,8 @@ import {
     DrawerItem
 } from '@react-navigation/drawer';
 
+import { deleteJwt } from '../utils/jwt';
+
 
 
 
@@ -111,7 +113,7 @@ export function DrawerContent(props) {
                         />
                     )}
                     label="Sign Out"
-                    onPress={() => {}}
+                    onPress={() => {deleteJwt(), props.navigation.navigate('FirstHomeScreen')}}
                 />
             </Drawer.Section>
         </View>

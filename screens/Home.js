@@ -43,8 +43,11 @@ export default function Home(){
                     onPress={() => {}}
                 />
             </View>
+
                 {/*Ongoing Order view*/}
-        <ScrollView style={{top: 75}}>
+
+        <ScrollView style={{top: 75, marginBottom: 160}}>
+
                 <View style={styles.view1}>
 
                     <Text style={{marginTop: 25, marginLeft: 20, color: 'white', fontSize: 15, fontWeight :'bold'}} > Ongoing Order </Text>
