@@ -65,7 +65,6 @@ export function DrawerContent(props) {
                             icon={({color, size}) => (
                                 <Icon 
                                 name="account" 
-                                
                                 type='material-community'
                                 color={color}
                                 size={size}
@@ -98,7 +97,19 @@ export function DrawerContent(props) {
                             label="Track Your Order"
                             onPress={() => {props.navigation.navigate('TrackOrder')}}
                         />
-    
+
+                        <DrawerItem 
+                            icon={({color, size}) => (
+                                <Icon 
+                                name= 'account-cog'
+                                type='material-community'
+                                color={color}
+                                size={size}
+                                />
+                            )}
+                            label="Profile Settings"
+                            onPress={() => {props.navigation.navigate('UpdateProfile')}}
+                        />
                     </Drawer.Section>
                 
                 </View>

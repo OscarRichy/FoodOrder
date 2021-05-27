@@ -3,10 +3,11 @@ import { StyleSheet, TextInput, View, Text} from 'react-native';
 import { Button } from 'react-native-elements'
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import * as axios from 'axios';
+
 import { useNavigation } from '@react-navigation/native';
-import { setJwt } from '../utils/jwt';
-import axiosInterceptor from '../utils/AxiosInterceptor';
+
+import {connect} from 'react-redux';
+import { login } from '../redux/actions/authActions';
 
 
 const LoginSchema = yup.object({
@@ -20,8 +21,21 @@ const LoginSchema = yup.object({
 
 })
 
-export default function LoginForm() {
+function LoginForm(props) {
+
     const navigation = useNavigation();
+
+    const {loginDispatch}= props;
+
+    const error = function() {
+        console.log('erreurLogin')
+    }
+
+    const success = function() {
+        navigation.navigate('Home')
+        console.log('LoginValide')
+    }
+
     return(
         
         <View style={ {marginTop: 10 } }>
@@ -30,34 +44,12 @@ export default function LoginForm() {
                 validationSchema={LoginSchema}
                 
                 onSubmit={( data, actions) => {
-                   // const apiUserLogin = (data, actions, setErrorMsg) 
 
-                    const apiUrl = 'https://api.adas.app/api/v1/users/registration/login/';
-                    //setNonFieldError("");
-                    actions.setSubmitting(true); // Ceci grise le bouton du formulaire pour dire à l'utilisateur qu'on traite sa requete
-                    // On dit à Axios d'aller appeler l'apiUrl avec la méthode POST, et les données du formulaire (data)
-                    axiosInterceptor.post(apiUrl, data)
-                        .then(response => {
-                            console.log(response.data)
-                            //actions.resetForm();
-                            setJwt(response.data.access_token);
-                            //setProfile(response.data.user);
-                            navigation.navigate('Home'); // Si l'appel de l'api est une réussite, donc on s'est bien enregistré, on redirige l'utilisateur vers la page profile
-                        })
-                        .catch(error => {
-                            if (error.response) {
-                                let errors = error.response.data;
-                                actions.setErrors(errors);
-                                if (errors.non_field_errors) {
-                                    setErrorMsg(errors.non_field_errors);
-                                }
-                            }
-                            
-                        }).finally(() => {
-                            actions.setSubmitting(false); // On finit par remettre le bouton à la normale
-                        
-                            
-                        });                    
+                    console.log('0')
+
+                    loginDispatch(data,actions, success, error) 
+
+                    console.log('5')              
         
                 }}
             >
@@ -121,3 +113,19 @@ const styles = {
 
     }
 }
+
+const mapStateToProps = (state) => {
+    return{
+      loadingStates: state.loadingReducer,
+    }
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return{
+        loginDispatch: (data,actions,successCallback, errorCallback) => {
+            dispatch(login(data,actions,successCallback, errorCallback));
+      },
+    }
+  }
+  
+ export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)

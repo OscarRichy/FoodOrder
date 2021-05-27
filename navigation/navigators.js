@@ -9,6 +9,7 @@ import OngoingOrder from "../screens/OngoingOrder";
 import TrackOrder from "../screens/TrackOrder";
 import { createDrawerNavigator} from '@react-navigation/drawer';
 import { DrawerContent } from '../screens/DrawerContent';
+import UpdateProfile from "../screens/UpdateProfile";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -40,6 +41,7 @@ export const ProfileDrawerNavigator = () => {
         <Drawer.Navigator initialRouteName = 'Home' drawerContent={props => <DrawerContent { ... props}/>}>
             <Drawer.Screen name = 'Home' component={MainStackNavigator}/>
             <Drawer.Screen name = 'MyProfile' component={MyProfile}/>
+            <Drawer.Screen name = 'UpdateProfile' component={UpdateProfile}/>
         </Drawer.Navigator>
     )
 }

@@ -2,24 +2,26 @@ import React, { useEffect } from 'react';
 import { StyleSheet,View, Text} from 'react-native';
 import { Button } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
-import axiosInterceptor from '../utils/AxiosInterceptor';
+import { AFTER_FIRST_UNLOCK } from 'expo-secure-store';
+import {connect} from 'react-redux';
+import {fetchMe} from '../redux/actions/userActions'
 
-export default function Home(){
+function FirstHomeScreen(props){
+    const {fetchMeDispatch} = props;
     const navigation = useNavigation();
 
-    useEffect( (data, actions) => {
+    const success = function() {
+     navigation.navigate('Home')
+     console.log('valide')
+    }
+    const error = function() {
+      console.log('erreur')
+    }
 
-        const apiUrl = 'https://api.adas.app/api/v1/users/me/';
-        axiosInterceptor.get(apiUrl)
-        .then(response => {
-            console.log(response.data)
-            navigation.navigate('Home'); // Si l'appel de l'api est une réussite, donc on s'est bien enregistré, on redirige l'utilisateur vers la page profile
-        })
-        .catch(error => {  
-        })
-        .finally(() => {
-        });          
-    })
+    useEffect( () => {
+        fetchMeDispatch(success,error)
+    },[])
+
     return( 
         <View style={styles.container}>
             <View style={ {marginTop: 200} }>
@@ -45,3 +47,26 @@ const styles = StyleSheet.create({
       backgroundColor: 'white',
     },
 });
+
+const mapStateToProps = (state) => {
+    return{
+      loadingStates: state.loadingReducer,
+    }
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return{
+      // Tu dois passer les params ici 
+      fetchMeDispatch: (successCallback, errorCallback) => {
+        dispatch(fetchMe(successCallback, errorCallback));
+      },
+      fetchCategoryAddressesDispatch: () =>{
+        dispatch(fetchCategoryAddressesAction());
+      },
+      fetchAddressTitlesAutocompleteDispatch: () =>{
+        dispatch(fetchAddressTitlesAutocompleteAction());
+      },
+    }
+  }
+  
+ export default connect(mapStateToProps, mapDispatchToProps)(FirstHomeScreen)

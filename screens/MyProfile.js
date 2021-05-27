@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, TextInput, View, Text, ImageBackground, Image, ScrollView} from 'react-native';
 import { Button } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
-import { deleteJwt } from '../utils/jwt';
 import axiosInterceptor from '../utils/AxiosInterceptor';
 import{ IconButton, Colors } from 'react-native-paper';
 

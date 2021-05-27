@@ -145,7 +145,30 @@ export const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 15,
 
-    }
+    },
+    textinput: {
+        marginTop: 10, 
+        marginLeft: 20, 
+        marginRight: 20, 
+        height: 40, 
+        borderColor: '#a9a9a9', 
+        backgroundColor: '#f5f5f5', 
+        borderTopStartRadius: 5, 
+        borderTopEndRadius: 5, 
+        borderBottomRightRadius: 5,
+        borderBottomLeftRadius: 5 ,
+        borderWidth: 1, 
+        paddingLeft: 10
 
+    },
+
+    errortext: {
+        marginTop: 0,
+        marginLeft: 20,
+        color: '#f00',
+        fontSize: 10,
+        
+
+    },
 
   });
