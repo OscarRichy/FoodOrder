@@ -116,7 +116,7 @@ const styles = {
 
 const mapStateToProps = (state) => {
     return{
-      loadingStates: state.loadingReducer,
+      authStates: state.authReducer,
     }
   }
   

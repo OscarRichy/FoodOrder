@@ -17,7 +17,7 @@ function FirstHomeScreen(props){
     const error = function() {
       console.log('erreur')
     }
-
+   // navigation.navigate('Home')
     useEffect( () => {
         fetchMeDispatch(success,error)
     },[])
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return{
-      loadingStates: state.loadingReducer,
+      userStates: state.userReducer,
     }
   }
   

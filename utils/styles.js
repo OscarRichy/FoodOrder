@@ -42,6 +42,16 @@ export const styles = StyleSheet.create({
         height : 110,
         borderRadius: 20
     },
+    profileImage:{
+        marginTop: 20,
+         alignSelf: 'center',
+         resizeMode: 'cover',
+         width : 110 ,
+         height : 110,
+         borderColor: '#f8f8f8',
+         borderWidth: 4,
+         borderRadius: 40
+     },
     image2:{
         // flex:1,
          //marginTop: -25,

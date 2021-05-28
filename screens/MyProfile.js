@@ -2,29 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, TextInput, View, Text, ImageBackground, Image, ScrollView} from 'react-native';
 import { Button } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
-import axiosInterceptor from '../utils/AxiosInterceptor';
 import{ IconButton, Colors } from 'react-native-paper';
-
+import { connect } from 'react-redux';
 
 
 const imageBg = require ('../assets/ImageBg.png');
 
-
-
-export default function MyProfile(){
+function MyProfile(props){
     const navigation = useNavigation();
-    const [profile, setProfile] = useState({ "email": '', "first_name": '', "id": 0 , "last_name": '', "phone_number": '', "profile_img": null });
-
-    useEffect( () => {
-        const apiUrl = 'https://api.adas.app/api/v1/users/me/';
-        axiosInterceptor.get(apiUrl)
-
-        .then(response => {
-            setProfile(response.data)
-        })
-
-    }, [])
-
+    const {userState} = props;
     return( 
 
 
@@ -47,7 +33,7 @@ export default function MyProfile(){
 
                 <View style={[styles.shadow, styles.view1]}>
 
-                    <Text style={{marginTop: 90, fontSize: 20, fontWeight :'bold',textAlign:'center'}} > Hi, {profile.first_name} {profile.last_name}  </Text>
+                    <Text style={{marginTop: 90, fontSize: 20, fontWeight :'bold',textAlign:'center'}} > Hi, {userState.first_name} {userState.last_name}  </Text>
                     <Text style={{marginTop: 10,alignSelf: 'center', fontSize: 13,fontWeight: 'bold', color: '#a9a9a9'}}> Good Morning</Text>  
                 
                 </View>
@@ -55,7 +41,7 @@ export default function MyProfile(){
             {/*Photo de profile*/ }
 
                 <View style={styles.shadow}>
-                    <Image source={require( "../assets/profilepictest.jpg") } style={styles.image}></Image>
+                    <Image source={{uri : userState.profile_img}} style={styles.image}></Image>
                 </View>
             
             {/* View Popular Group */ }
@@ -176,3 +162,12 @@ const styles = StyleSheet.create({
     },
 
   });
+  
+  const mapStateToProps = (state) => {
+    return{
+      userState: state.userReducer,
+    }
+  }
+
+    
+ export default connect(mapStateToProps)(MyProfile)
