@@ -8,7 +8,7 @@ import MyProfile from "../screens/MyProfile";
 import OngoingOrder from "../screens/OngoingOrder";
 import TrackOrder from "../screens/TrackOrder";
 import { createDrawerNavigator} from '@react-navigation/drawer';
-import { DrawerContent } from '../screens/DrawerContent';
+import DrawerContent  from '../screens/DrawerContent';
 import UpdateProfile from "../screens/UpdateProfile";
 
 const Stack = createStackNavigator();

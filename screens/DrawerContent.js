@@ -18,12 +18,12 @@ import {
 } from '@react-navigation/drawer';
 
 import { deleteJwt } from '../utils/jwt';
+import { connect } from 'react-redux';
 
 
 
-
-export function DrawerContent(props) {
-
+function DrawerContent(props) {
+    const{userState}= props;
     return(
         <View style={{flex:1}}>
             <DrawerContentScrollView {...props}>
@@ -32,12 +32,12 @@ export function DrawerContent(props) {
                         <View style={{marginTop: 15}}>
                             <Avatar.Image 
                                 source={
-                                    require('../assets/profilepictest.jpg')
+                                    {uri: userState.profile_img}
                                 }
                                 size={50}
                             />
                             <View>
-                                <Title style={styles.title}>Oscar Richy</Title>
+                                <Title style={styles.title}>{userState.first_name} {userState.last_name}</Title>
                             </View>
                         </View>
 
@@ -176,3 +176,12 @@ const styles = StyleSheet.create({
       paddingHorizontal: 16,
     },
   });
+
+  const mapStateToProps = (state) => {
+    return{
+      userState: state.userReducer,
+    }
+  }
+
+    
+ export default connect(mapStateToProps)(DrawerContent)
