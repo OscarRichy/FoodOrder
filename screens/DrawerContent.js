@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Icon } from 'react-native-elements'
+import { Icon } from 'react-native-elements';
 import {
     useTheme,
     Avatar,
@@ -111,7 +111,23 @@ function DrawerContent(props) {
                             onPress={() => {props.navigation.navigate('UpdateProfile')}}
                         />
                     </Drawer.Section>
-                
+                                
+                    <Drawer.Section style={styles.drawerSection}>
+
+                        <DrawerItem 
+                            icon={({color, size}) => (
+                                <Icon 
+                                name= 'fact-check'
+                                type='material'
+                                color={color}
+                                size={size}
+                                />
+                            )}
+                            label="To Do List"
+                            onPress={() => {props.navigation.navigate('ToDoList')}}
+                        />
+
+                    </Drawer.Section>
                 </View>
             </DrawerContentScrollView>
             <Drawer.Section style={styles.bottomDrawerSection}>

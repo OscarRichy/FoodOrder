@@ -181,4 +181,28 @@ export const styles = StyleSheet.create({
 
     },
 
+    listContainer: {
+        padding: 16
+    },
+
+    listText: {
+        fontSize: 30
+    },
+
+    item: {
+        flexDirection: 'row',
+        backgroundColor: 'white',
+        padding: 10,
+        
+      },
+
+    title: {
+        fontSize: 20,
+    },
+
+    iconList: {
+        marginTop: 0,
+        marginLeft: 10
+    },
+
   });

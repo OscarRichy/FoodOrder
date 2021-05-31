@@ -6,12 +6,14 @@ import { Provider } from 'react-redux';
 import { createStore , combineReducers, applyMiddleware} from 'redux';
 import authReducer from './redux/reducer/authReducer';
 import userReducer from './redux/reducer/userReducer';
+import todoReducer from './redux/reducer/todoReducer';
 
 import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
     userReducer: userReducer,
     authReducer: authReducer,
+    todoReducer: todoReducer,
   }
 );
 
